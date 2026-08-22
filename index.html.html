@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>For Riju Parajuli 💗</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,serif;background:#08060b;color:#fff;overflow-x:hidden}
+#stars{position:fixed;inset:0;z-index:-3}
+.bg{position:fixed;inset:0;z-index:-2;background:
+radial-gradient(circle at 50% 20%,rgba(244,83,137,.25),transparent 28%),
+radial-gradient(circle at 20% 80%,rgba(132,62,180,.18),transparent 30%),
+linear-gradient(135deg,#09060b,#210d1c 55%,#08060b)}
+.glow{position:fixed;width:350px;height:350px;border-radius:50%;background:rgba(255,85,145,.1);filter:blur(80px);pointer-events:none;z-index:-1;transition:1s}
+section{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:70px 18px;position:relative}
+.scene{width:min(900px,94vw);text-align:center;opacity:0;transform:translateY(60px) scale(.96);transition:1.1s cubic-bezier(.2,.8,.2,1)}
+.scene.show{opacity:1;transform:none}
+.eyebrow{font:700 11px Arial;letter-spacing:5px;text-transform:uppercase;color:#ff9fbd;margin-bottom:22px}
+h1{font-size:clamp(4rem,13vw,9rem);line-height:.82;color:#fff;text-shadow:0 0 35px rgba(255,82,143,.5);margin-bottom:28px}
+h2{font-size:clamp(2.5rem,7vw,5rem);color:#fff;margin-bottom:28px;text-shadow:0 0 25px rgba(255,90,145,.3)}
+p{font:16px/2 Arial,sans-serif;color:#f1dce5}
+.lead{font-size:1.2rem;max-width:690px;margin:auto}
+.glass{padding:48px 30px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.13);border-radius:34px;backdrop-filter:blur(18px);box-shadow:0 30px 100px rgba(0,0,0,.35)}
+.btn{margin-top:34px;padding:15px 31px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:linear-gradient(135deg,#e54b7d,#a92e68);color:#fff;font:bold 15px Arial;cursor:pointer;box-shadow:0 0 30px rgba(229,75,125,.28);transition:.3s}
+.btn:hover{transform:translateY(-5px) scale(1.04);box-shadow:0 0 45px rgba(229,75,125,.5)}
+.line{width:70px;height:2px;background:#ff7fa7;margin:25px auto;box-shadow:0 0 15px #ff7fa7}
+.story{max-width:700px;margin:auto}
+.story p{margin:16px 0}
+.quote{margin:30px auto;padding:24px;border-left:3px solid #ff7fa7;background:rgba(255,105,155,.07);border-radius:0 20px 20px 0;font-style:italic}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:17px;margin-top:32px}
+.mini{padding:25px 20px;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);transition:.4s}
+.mini:hover{transform:translateY(-10px) rotateX(5deg);background:rgba(255,105,155,.09);border-color:rgba(255,130,170,.3)}
+.mini .icon{font-size:2.3rem}
+.mini h3{font:700 18px Arial;color:#ff9cbb;margin:10px 0}
+.mini p{font-size:14px}
+.question{max-width:600px;margin:24px auto;padding:25px;border-radius:25px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1)}
+.question h3{font:700 22px Arial;color:#fff;margin-bottom:17px}
+.answer{width:100%;padding:14px;margin:7px 0;border-radius:14px;border:1px solid rgba(255,150,180,.25);background:rgba(255,255,255,.07);color:#fff;font:bold 15px Arial;cursor:pointer;transition:.3s}
+.answer:hover,.answer.selected{background:linear-gradient(90deg,rgba(220,60,110,.7),rgba(150,50,120,.7));transform:scale(1.02)}
+.reply{min-height:24px;margin-top:12px;color:#ff9fbd;font:bold 14px Arial}
+.secret{margin-top:25px;color:#ff9fbd!important;font-size:18px!important}
+.hidden{display:none}
+.scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font:12px Arial;color:#cfa5b5;animation:bounce 1.6s infinite}
+@keyframes bounce{50%{transform:translate(-50%,8px)}}
+.heart{position:fixed;bottom:-40px;z-index:5;pointer-events:none;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-115vh) rotate(360deg);opacity:0}}
+.flash{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:20}
+.flash.on{animation:flash .5s}
+@keyframes flash{30%{opacity:.18}}
+@media(max-width:600px){.glass{padding:38px 20px}section{padding:45px 12px}}
+
+.photo-area{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.photo-card{height:210px;border-radius:22px;overflow:hidden;position:relative;background:linear-gradient(135deg,#3a1729,#170b14);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;transition:.4s}
+.photo-card:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 20px 45px rgba(255,70,130,.18)}
+.photo-card img{width:100%;height:100%;object-fit:cover;display:none}
+.photo-card.has-image img{display:block}
+.photo-card .placeholder{font:700 13px Arial;color:#d7a9b9;text-align:center;padding:20px}
+.photo-card.has-image .placeholder{display:none}
+.caption{position:absolute;bottom:0;left:0;right:0;padding:28px 12px 12px;background:linear-gradient(transparent,rgba(0,0,0,.8));font:13px Arial;color:white;text-align:left}
+.timeline{margin:32px auto;max-width:620px;text-align:left}
+.time-item{position:relative;padding:0 0 28px 38px;border-left:2px solid rgba(255,127,167,.45)}
+.time-item:last-child{border-left-color:transparent}
+.time-item:before{content:"";position:absolute;left:-7px;top:0;width:12px;height:12px;border-radius:50%;background:#ff7fa7;box-shadow:0 0 18px #ff7fa7}
+.time-date{font:700 12px Arial;letter-spacing:2px;color:#ff9fbd;text-transform:uppercase}
+.time-title{font:700 20px Arial;color:#fff;margin:6px 0}
+.envelope-wrap{margin:30px auto;perspective:900px;max-width:430px}
+.envelope{height:230px;position:relative;cursor:pointer;transform-style:preserve-3d;transition:1s}
+.env-back,.env-front{position:absolute;inset:0;border-radius:18px;background:linear-gradient(135deg,#b83268,#7d214d);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.env-flap{position:absolute;z-index:3;top:0;left:0;width:0;height:0;border-left:215px solid transparent;border-right:215px solid transparent;border-top:120px solid #d84b7a;transform-origin:top;transition:1s}
+.env-note{position:absolute;z-index:2;left:9%;right:9%;top:20px;height:185px;border-radius:12px;background:#fff4f8;color:#642d44;padding:25px 20px;font:15px/1.7 Arial;transform:translateY(70px);transition:1s;opacity:.15}
+.envelope.open .env-flap{transform:rotateX(180deg);z-index:1}
+.envelope.open .env-note{transform:translateY(-40px);opacity:1}
+.upload-note{font:12px Arial!important;color:#b98c9f!important;margin-top:10px}
+@media(max-width:650px){.photo-area{grid-template-columns:1fr}.photo-card{height:240px}.env-flap{border-left-width:calc(50vw - 22px);border-right-width:calc(50vw - 22px)}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas><div class="bg"></div><div class="glow" id="glow"></div><div class="flash" id="flash"></div>
+
+<section>
+<div class="scene">
+<div style="font-size:4.5rem;animation:pulse 2s infinite">💗</div>
+<div class="eyebrow">A little story for someone special</div>
+<h1>For Riju Parajuli.</h1>
+<p class="lead">I didn't make this because today is special.<br>I made it because <b>you are.</b></p>
+<p style="margin-top:18px;color:#ff9fbd;font:italic 15px Arial;">Together since 2082/9/5 💗</p>
+<button class="btn" onclick="go('one')">Begin the little story ✨</button>
+</div><div class="scroll">scroll slowly ↓</div>
+</section>
+
+<section id="one">
+<div class="scene glass">
+<div class="eyebrow">For Riju</div><h2>When I Think About Riju</h2><div class="line"></div>
+<div class="story">
+<p>I don't know exactly when it happened, but somehow you became one of those people who randomly appear in my thoughts.</p>
+<p>A song, a place, something funny, or even a completely normal moment can remind me of you.</p>
+<div class="quote">Maybe you don't notice it, but you have become a small part of many of my thoughts. 🌙</div>
+<p>And honestly, I kind of like that. Riju, you have become one of those people I don't want to imagine my days without.</p>
+</div>
+<button class="btn" onclick="go('two')">Next chapter →</button>
+</div>
+</section>
+
+<section id="two">
+<div class="scene glass">
+<div class="eyebrow">Chapter Two</div><h2>The Little Things About Riju</h2><div class="line"></div>
+<div class="cards">
+<div class="mini"><div class="icon">😊</div><h3>Your smile</h3><p>It is one of those things I notice without even trying.</p></div>
+<div class="mini"><div class="icon">💬</div><h3>Your words</h3><p>Even random conversations can stay in my mind.</p></div>
+<div class="mini"><div class="icon">🌸</div><h3>Your little habits</h3><p>The tiny things you probably don't think anyone notices.</p></div>
+<div class="mini"><div class="icon">✨</div><h3>Your presence</h3><p>You don't have to do anything. Being there is enough.</p></div>
+</div>
+<button class="btn" onclick="go('three')">I have more to say →</button>
+</div>
+</section>
+
+<section id="three">
+<div class="scene glass">
+<div class="eyebrow">Chapter Three</div><h2>How Riju Makes Me Feel</h2><div class="line"></div>
+<div class="story">
+<p>Riju, you make normal days feel a little less normal.</p>
+<p>Sometimes I see your name on my screen and instantly smile. Sometimes I remember something you said hours later. And sometimes I just feel happy knowing you're around.</p>
+<p>It's not complicated. I just genuinely enjoy having you in my life.</p>
+</div>
+<button class="btn" onclick="go('storydate')">One more part of our story → 💗</button>
+</div>
+</section>
+
+
+<section id="storydate">
+<div class="scene glass">
+<div class="eyebrow">A date I remember</div><h2>Where Our Story Began</h2><div class="line"></div>
+<div class="timeline">
+<div class="time-item">
+<div class="time-date">2082/09/05</div>
+<div class="time-title">The beginning. 💗</div>
+<p>Some dates are just dates. This one means a little more to me because it became part of our story.</p>
+</div>
+<div class="time-item">
+<div class="time-date">After that</div>
+<div class="time-title">Little moments.</div>
+<p>Conversations, laughs, random memories, and all the small things that slowly became important.</p>
+</div>
+<div class="time-item">
+<div class="time-date">Right now</div>
+<div class="time-title">Still writing it. 🌷</div>
+<p>And this little website is just another tiny page in that story.</p>
+</div>
+</div>
+<button class="btn" onclick="go('photos')">A few memories → 📸</button>
+</div>
+</section>
+
+<section id="photos">
+<div class="scene glass">
+<div class="eyebrow">Our little gallery</div><h2>Memories</h2><div class="line"></div>
+<p>These spaces are ready for your real photos. Replace the placeholders with your favorite memories.</p>
+<div class="photo-area">
+<div class="photo-card"><div class="placeholder">📸<br>Memory 01<br><small>Add a photo here</small></div><div class="caption">A moment worth remembering.</div></div>
+<div class="photo-card"><div class="placeholder">📸<br>Memory 02<br><small>Add a photo here</small></div><div class="caption">One of my favorites.</div></div>
+<div class="photo-card"><div class="placeholder">📸<br>Memory 03<br><small>Add a photo here</small></div><div class="caption">Just a little memory.</div></div>
+</div>
+<p class="upload-note">Tip: I can place your photos here if you upload them in the chat.</p>
+<button class="btn" onclick="go('never')">Things I don't always say → 💭</button>
+</div>
+</section>
+
+<section id="never">
+<div class="scene glass">
+<div class="eyebrow">Things I don't always say</div><h2>But I Think Them.</h2><div class="line"></div>
+<div class="story">
+<p>Riju, sometimes I don't say everything that's on my mind. Not because I don't feel it, but because some feelings are easier to keep in your heart than turn into words.</p>
+<p>I appreciate the way you can make me smile without even trying. I appreciate the memories, the conversations, and simply knowing that you're part of my life.</p>
+<p>And even when I don't say it, I hope you know that you matter to me.</p>
+</div>
+<button class="btn" onclick="go('envelope')">I wrote you something 💌</button>
+</div>
+</section>
+
+<section id="envelope">
+<div class="scene glass">
+<div class="eyebrow">Open when you're ready</div><h2>A Little Letter</h2><div class="line"></div>
+<div class="envelope-wrap">
+<div class="envelope" id="envelope" onclick="openEnvelope()">
+<div class="env-back"></div>
+<div class="env-note">Riju,<br><br>I made this little place because sometimes I want you to know what I feel without having to find the perfect words. I hope this makes you smile. 💗<br><br>— Me</div>
+<div class="env-front"></div><div class="env-flap"></div>
+</div>
+</div>
+<p class="upload-note">Tap the envelope to open it.</p>
+<button class="btn" onclick="go('questions')">Now, one tiny game → 💗</button>
+</div>
+</section>
+<section id="questions">
+<div class="scene glass">
+<div class="eyebrow">Just for fun</div><h2>Tell Me Something 💭</h2>
+<p>Pick the answer that feels closest to you. There are only sweet answers here. 💗</p>
+
+<div class="question"><h3>Do you love me? ❤️</h3>
+<button class="answer" onclick="pick(this,'r1','I was hoping you would say that. 🥹💗')">Yes, I do ❤️</button>
+<button class="answer" onclick="pick(this,'r1','That answer made me smile. 🫶')">Of course I do 💗</button><div id="r1" class="reply"></div></div>
+
+<div class="question"><h3>Do I make you smile? 😊</h3>
+<button class="answer" onclick="pick(this,'r2','Then I will keep trying to make you smile. 🌸')">Yes, always 💕</button>
+<button class="answer" onclick="pick(this,'r2','I will happily accept that. ✨')">Most of the time 😌</button><div id="r2" class="reply"></div></div>
+
+<div class="question"><h3>Do you think about me too? 🌙</h3>
+<button class="answer" onclick="pick(this,'r3','So I'm not the only one. 👀💗')">More than you know 💗</button>
+<button class="answer" onclick="pick(this,'r3','Then I guess we think about each other sometimes. 🌷')">Sometimes 🌸</button><div id="r3" class="reply"></div></div>
+
+<div class="question"><h3>Would you keep this little website? 💌</h3>
+<button class="answer" onclick="pick(this,'r4','Then it was worth making. 🫶')">Yes, I would 💗</button>
+<button class="answer" onclick="pick(this,'r4','I'll take that as a cute maybe. 😌')">Probably 🌷</button><div id="r4" class="reply"></div></div>
+
+<button class="btn" onclick="go('final')">Last chapter → ✨</button>
+</div>
+</section>
+
+<section id="final">
+<div class="scene glass">
+<div style="font-size:4rem">🌷✨💗✨🌷</div>
+<div class="eyebrow">Final Chapter</div><h2>Just Remember This, Riju.</h2><div class="line"></div>
+<div class="story">
+<p>Riju, you don't need a birthday for someone to appreciate you.</p>
+<p>You don't need to be perfect. You don't need to do something amazing.</p>
+<p>I just like you for being <b>you</b>.</p>
+<p>And if you ever wonder what I think about you, I hope this little page reminds you:</p>
+<div class="quote">You are someone worth thinking about. Someone worth appreciating. Someone I'm really glad I met. 💗</div>
+</div>
+<p style="margin-top:25px;color:#ff9fbd;font-style:italic">— For Riju, from someone who probably thinks about you more than they admit. 🌙</p>
+<p style="margin-top:10px;color:#cfa5b5;font:13px Arial;">Together since 2082/9/5 💗</p>
+<button class="btn" onclick="secret()">One final secret 🤫</button>
+<p id="secretText" class="hidden secret">Okay... you caught me. I probably smile whenever I see your name. 🥹💗</p>
+</div>
+</section>
+
+<style>@keyframes pulse{50%{transform:scale(1.15);filter:drop-shadow(0 0 20px #ff5c91)}}</style>
+<script>
+function go(id){document.getElementById(id).scrollIntoView({behavior:"smooth"});flash()}
+function flash(){const f=document.getElementById("flash");f.classList.remove("on");void f.offsetWidth;f.classList.add("on")}
+function pick(btn,id,text){document.querySelectorAll(".answer").forEach(b=>b.classList.remove("selected"));btn.classList.add("selected");document.getElementById(id).textContent=text;burst()}
+function secret(){document.getElementById("secretText").classList.remove("hidden");burst(35);flash()}
+function burst(n=14){for(let i=0;i<n;i++){let h=document.createElement("span");h.className="heart";h.textContent=["💗","✨","💕","🌸"][Math.floor(Math.random()*4)];h.style.left=45+Math.random()*10+"%";h.style.fontSize=15+Math.random()*25+"px";h.style.animationDuration=2+Math.random()*3+"s";document.body.appendChild(h);setTimeout(()=>h.remove(),5500)}}
+setInterval(()=>{let h=document.createElement("span");h.className="heart";h.textContent=["💗","💕","♡","🌸","✨"][Math.floor(Math.random()*5)];h.style.left=Math.random()*100+"%";h.style.fontSize=14+Math.random()*22+"px";h.style.animationDuration=6+Math.random()*8+"s";document.body.appendChild(h);setTimeout(()=>h.remove(),15000)},650);
+
+const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show")}),{threshold:.18});
+document.querySelectorAll(".scene").forEach(e=>observer.observe(e));
+
+const canvas=document.getElementById("stars"),ctx=canvas.getContext("2d");
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight}resize();addEventListener("resize",resize);
+let stars=Array.from({length:130},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.5,a:.2+Math.random()*.8}));
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);stars.forEach(s=>{ctx.globalAlpha=s.a;ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fill();s.a+= (Math.random()-.5)*.03;s.a=Math.max(.15,Math.min(1,s.a))});requestAnimationFrame(draw)}draw();
+
+addEventListener("mousemove",e=>{let g=document.getElementById("glow");g.style.left=e.clientX-175+"px";g.style.top=e.clientY-175+"px"});
+
+function openEnvelope(){document.getElementById("envelope").classList.toggle("open");burst(20)}
+let audioCtx=null,osc=null,gain=null;
+function toggleAmbience(){
+ const b=document.querySelector("#musicBox button");
+ if(!audioCtx){
+  audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+  osc=audioCtx.createOscillator(); gain=audioCtx.createGain();
+  osc.type="sine";osc.frequency.value=220;gain.gain.value=.018;
+  osc.connect(gain);gain.connect(audioCtx.destination);osc.start();
+  b.textContent="♪ Ambience on"; 
+ }else if(audioCtx.state==="running"){audioCtx.suspend();b.textContent="♪ Soft ambience"}else{audioCtx.resume();b.textContent="♪ Ambience on"}
+}
+</script>
+
+<div id="musicBox" style="position:fixed;right:18px;bottom:18px;z-index:30">
+<button class="btn" style="margin:0;padding:11px 17px;font-size:13px" onclick="toggleAmbience()">♪ Soft ambience</button>
+</div>
+</body>
+</html>
