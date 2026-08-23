@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE h
+tml>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -282,6 +283,17 @@ function toggleAmbience(){
   osc.connect(gain);gain.connect(audioCtx.destination);osc.start();
   b.textContent="♪ Ambience on"; 
  }else if(audioCtx.state==="running"){audioCtx.suspend();b.textContent="♪ Soft ambience"}else{audioCtx.resume();b.textContent="♪ Ambience on"}
+}
+ function togglePhotoMusic(card) {
+    const audio = card.querySelector("audio");
+
+    if (!audio) return;
+
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
 }
 </script>
 
